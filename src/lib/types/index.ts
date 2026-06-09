@@ -44,6 +44,7 @@ export interface Category {
   icon: string;
   count: number;
   color: string;
+  description?: string;
 }
 
 export interface ContactRequest {
