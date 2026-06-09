@@ -1,0 +1,333 @@
+/* Categories Page Styles */
+.wrap {
+  min-height: calc(100vh - 64px);
+  padding: 24px 16px;
+  background: #0a0a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scene {
+  width: 100%;
+  max-width: 1100px;
+  height: 520px;
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+.card {
+  position: relative;
+  height: 100%;
+  flex: 0 0 66px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.52s cubic-bezier(0.77, 0, 0.18, 1);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:last-child {
+  border-right: none;
+}
+
+.cardOpen {
+  flex: 0 0 400px;
+}
+
+.cbg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  filter: saturate(1.2) brightness(0.7);
+}
+
+.cardOpen .cbg {
+  opacity: 1;
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 7, 20, 0.82);
+  transition: background 0.4s;
+}
+
+.cardOpen .cover {
+  background: linear-gradient(130deg, rgba(9, 6, 28, 0.88) 0%, rgba(40, 15, 70, 0.6) 55%, rgba(9, 6, 28, 0.25) 100%);
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s;
+  pointer-events: none;
+}
+
+.cardOpen .art {
+  opacity: 1;
+}
+
+.cnum {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.22);
+  white-space: nowrap;
+  transition: all 0.4s;
+  z-index: 3;
+}
+
+.cardOpen .cnum {
+  left: 24px;
+  transform: none;
+  color: rgba(196, 181, 253, 0.4);
+}
+
+.cicn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(196, 181, 253, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: top 0.52s cubic-bezier(0.77, 0, 0.18, 1), left 0.52s cubic-bezier(0.77, 0, 0.18, 1), transform 0.52s cubic-bezier(0.77, 0, 0.18, 1), border-color 0.4s, background 0.4s;
+  z-index: 3;
+  background: rgba(196, 181, 253, 0.04);
+}
+
+.cicn svg {
+  width: 20px;
+  height: 20px;
+  stroke: rgba(196, 181, 253, 0.45);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.4s;
+}
+
+.cardOpen .cicn {
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1);
+  border-color: rgba(196, 181, 253, 0.55);
+  background: rgba(167, 139, 250, 0.14);
+}
+
+.cardOpen .cicn svg {
+  stroke: rgba(216, 180, 254, 0.9);
+}
+
+.cline {
+  position: absolute;
+  width: 26px;
+  height: 2px;
+  background: #9d6fff;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(34% + 36px);
+  border-radius: 1px;
+  opacity: 0;
+  transition: all 0.45s 0.12s;
+  z-index: 3;
+}
+
+.cardOpen .cline {
+  opacity: 1;
+  left: 24px;
+  transform: none;
+  width: 30px;
+}
+
+.ctw {
+  position: absolute;
+  bottom: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  transition: all 0.52s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.cardOpen .ctw {
+  bottom: auto;
+  top: calc(34% + 52px);
+  left: 24px;
+  transform: none;
+  align-items: flex-start;
+}
+
+.ctit {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition: font-size 0.3s, writing-mode 0s 0.18s;
+}
+
+.cardOpen .ctit {
+  writing-mode: horizontal-tb;
+  font-size: 20px;
+  font-family: 'Noto Serif SC', Georgia, serif;
+}
+
+.csub {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: #b57fff;
+  margin-top: 4px;
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 0.25s 0.22s;
+  writing-mode: horizontal-tb;
+}
+
+.cardOpen .csub {
+  opacity: 1;
+}
+
+.cbody {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  right: 16px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s 0.22s, transform 0.3s 0.22s;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.cardOpen .cbody {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.cdesc {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.48);
+  margin: 0 0 10px;
+}
+
+.ctags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 11px;
+}
+
+.ctag {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  padding: 3px 7px;
+  border-radius: 2px;
+  border: 1px solid rgba(180, 100, 255, 0.35);
+  color: rgba(216, 180, 254, 0.7);
+  letter-spacing: 0.04em;
+}
+
+.ccta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  background: linear-gradient(135deg, #c084fc, #818cf8);
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.ccta:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.ccta svg {
+  width: 10px;
+  height: 10px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nav {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.nbtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.nbtn:hover {
+  border-color: #9d6fff;
+  background: rgba(157, 111, 255, 0.18);
+}
+
+.nbtn svg {
+  width: 12px;
+  height: 12px;
+  stroke: rgba(255, 255, 255, 0.6);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
