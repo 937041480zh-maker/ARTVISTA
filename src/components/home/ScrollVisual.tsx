@@ -28,7 +28,9 @@ export function ScrollVisual() {
             <div className="relative px-8 py-12 rounded-3xl backdrop-blur-2xl bg-white/[0.03] border border-white/[0.08] shadow-2xl">
               {/* Quote */}
               <blockquote className="text-2xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-8 tracking-tight">
-                "在这里，代码化作艺术"
+              <blockquote className="text-2xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-8 tracking-tight">
+               &quot;在这里，代码化作艺术&quot;
+              </blockquote>
               </blockquote>
               
               <p className="text-white/50 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
