@@ -10,6 +10,7 @@ interface SelectProps {
   placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
+  className?: string;
 }
 
 export function Select({
